@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,111 +31,36 @@
         }
         
         .btn-primary {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            color: white;
-            background-color: #2563eb;
-            transition: all 0.3s;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            @apply px-6 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-lg glowing-effect;
             border: 1px solid transparent;
-            animation: glowing-border 2.5s infinite;
-        }
-        .btn-primary:hover {
-            background-color: #1d4ed8;
         }
         .btn-secondary {
-            padding: 0.5rem 1.25rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            color: white;
-            background-color: #374151;
-            transition: all 0.3s;
-        }
-        .btn-secondary:hover {
-            background-color: #4b5563;
+            @apply px-5 py-2 rounded-lg font-medium text-white bg-gray-700 hover:bg-gray-600 transition-all duration-300;
         }
         .modal {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            transition: opacity 0.3s;
+            @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 transition-opacity duration-300;
         }
         .modal-content {
-            background: rgba(10, 15, 40, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 1rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            padding: 2rem;
-            width: 100%;
-            max-width: 28rem;
-            transform: scale(0.95);
-            transition: transform 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            @apply glass-morphism rounded-2xl shadow-2xl p-8 w-full max-w-md md:max-w-2xl transform transition-transform duration-300 scale-95;
+            border: 1px solid transparent; /* Base border for animation */
             animation: glowing-border 3s infinite alternate;
         }
-        @media (min-width: 768px) {
-            .modal-content {
-                max-width: 42rem;
-            }
-        }
         .input-field {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            background-color: #111827;
-            border: 1px solid #374151;
-            color: white;
-            transition: all 0.15s;
-        }
-        .input-field::placeholder {
-            color: #6b7280;
-        }
-        .input-field:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px #3b82f6;
+            @apply w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all;
         }
         .tab-button {
-            padding: 0.5rem 1.5rem;
-            font-weight: 600;
-            border-top-left-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
-            transition: all 0.15s;
+            @apply px-6 py-2 font-semibold rounded-t-lg transition-all;
         }
         .tab-button.active {
-            background-color: #1f2937;
-            color: #60a5fa;
-            border-bottom: 2px solid #60a5fa;
+            @apply bg-gray-800 text-blue-400 border-b-2 border-blue-400;
         }
         .tab-button:not(.active) {
-            color: #9ca3af;
-        }
-        .tab-button:not(.active):hover {
-            color: white;
+            @apply text-gray-400 hover:text-white;
         }
         
         /* Floating Action Button for Live AI */
         #liveAiButton {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 30;
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            @apply fixed bottom-8 right-8 z-30 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl;
             background: linear-gradient(145deg, #007cf0, #00aaff);
             animation: glowing-border 2s infinite;
             border: 2px solid transparent;
@@ -143,53 +68,20 @@
 
         /* Floating Action Button for Translation */
         #translationButton {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            z-index: 30;
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            background: linear-gradient(145deg, #6d28d9, #9f7aea);
+            @apply fixed bottom-8 left-8 z-30 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl;
+            background: linear-gradient(145deg, #6d28d9, #9f7aea); /* Violet gradient */
             animation: glowing-border 2.5s infinite;
             border: 2px solid transparent;
         }
         
         /* Live AI Modal Styles */
         #ai-transcript-area {
-            width: 100%;
-            height: 12rem;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            background-color: #111827;
-            border: 1px solid #374151;
-            color: #d1d5db;
-            overflow-y: auto;
+            @apply w-full h-48 p-4 rounded-lg bg-gray-900 border border-gray-700 text-gray-300 overflow-y-auto;
         }
 
         /* Translation/Text Area Modal Styles */
         .textarea-field {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            background-color: #111827;
-            border: 1px solid #374151;
-            color: white;
-            transition: all 0.15s;
-            height: 8rem;
-            resize: none;
-        }
-        .textarea-field::placeholder {
-            color: #6b7280;
-        }
-        .textarea-field:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px #3b82f6;
+             @apply w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all h-32 resize-none;
         }
         
         /* Lightning/particle effect background */
